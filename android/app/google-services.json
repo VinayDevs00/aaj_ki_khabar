@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "20536461748",
+    "project_id": "aajkikhabar-32566",
+    "storage_bucket": "aajkikhabar-32566.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20536461748:android:7b91d4cc965fbbd3014ae1",
+        "android_client_info": {
+          "package_name": "com.aajkikhabar.aaj_ki_khabar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20536461748-0psv4cds6q123qih93qjgq9trmnhri4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aajkikhabar.aaj_ki_khabar",
+            "certificate_hash": "9b15606922c0156f8d4a80a44b49bb7c8da770dc"
+          }
+        },
+        {
+          "client_id": "20536461748-ks0abtsl899adro9m84ct0j7gudihivg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKKpwjnYD9kUeqkw2Pms37T1ReLV99q9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20536461748-ks0abtsl899adro9m84ct0j7gudihivg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
