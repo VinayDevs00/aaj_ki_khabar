@@ -37,6 +37,8 @@ dependencies:
   hive: ^2.0.4
   hive_flutter: ^1.0.0
   path_provider: ^2.0.1
+  flutter_background_service: ^0.1.5
+
   #EndAddedByVinayShankarDubey
 
 

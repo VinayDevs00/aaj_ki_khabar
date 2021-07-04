@@ -4,6 +4,7 @@ import 'package:aaj_ki_khabar/Controller/post_controller.dart';
 import 'package:aaj_ki_khabar/View/Screens/post_detail_screen.dart';
 import 'package:aaj_ki_khabar/View/TabWidgets/category_postlist_widget.dart';
 import 'package:aaj_ki_khabar/View/TabWidgets/home_tab_widgets.dart';
+import 'package:aaj_ki_khabar/View/Widgets/widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,8 +13,6 @@ import 'package:hive/hive.dart';
 import 'category_post_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -23,16 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
       Get.put(CategoriesController(), tag: "categoryPOstTag");
   final CategoriesPOstController categoriesPOstController =
       Get.put(CategoriesPOstController(), tag: "catPostController");
-  final PostController postController = Get.put(PostController(), tag: "postController");
+  final PostController postController =
+      Get.put(PostController(), tag: "postController");
   Box box;
+
   @override
   void initState() {
-       super.initState();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     print("Check1 Home Sccreen build Executed");
+
+    final sSize = MediaQuery.of(context).size;
 
     ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
       return Scaffold(
@@ -117,34 +120,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 .toString()]
                                         .length,
                                     itemBuilder: (c, i) {
-                                      return ListTile(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    CategoryPostDetailScreen(
-                                                      postNumber: i,
-                                                    )),
-                                          );
-                                        },
-                                        leading: CachedNetworkImage(
-                                          imageUrl: categoriesController2
-                                              .categoryWisePostMap[
-                                                  categoriesController2
-                                                      .currentCategoryTab
-                                                      .toString()][i]
-                                              .embedded
-                                              .wpFeaturedmedia[0]
-                                              .link
-                                              .toString(),
-                                          errorWidget: (context, url, error) =>
-                                              Icon(Icons.error),
-                                          fit: BoxFit.contain,
-                                          width: Get.size.width * 0.2,
-                                        ),
-                                        title: Text(
-                                          categoriesController2
+                                      return Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 16.0, right: 16.0, top: 16.0),
+                                        child: MyWidgets().postCard(
+                                          sSize: sSize,
+                                          thumbnail : categoriesController2
+                                                    .categoryWisePostMap[
+                                                        categoriesController2
+                                                            .currentCategoryTab
+                                                            .toString()][i]
+                                                    .embedded
+                                                    .wpFeaturedmedia[0]
+                                                    .link
+                                                    .toString(),
+                                          title: categoriesController2
                                               .categoryWisePostMap[
                                                   categoriesController2
                                                       .currentCategoryTab
@@ -152,9 +142,47 @@ class _HomeScreenState extends State<HomeScreen> {
                                               .title
                                               .rendered
                                               .toString(),
-                                          maxLines: 3,
                                         ),
                                       );
+
+                                      // return ListTile(
+                                      //   onTap: () {
+                                      //     Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (context) =>
+                                      //               CategoryPostDetailScreen(
+                                      //                 postNumber: i,
+                                      //               )),
+                                      //     );
+                                      //   },
+                                      //   leading: CachedNetworkImage(
+                                      //     imageUrl: categoriesController2
+                                      //         .categoryWisePostMap[
+                                      //             categoriesController2
+                                      //                 .currentCategoryTab
+                                      //                 .toString()][i]
+                                      //         .embedded
+                                      //         .wpFeaturedmedia[0]
+                                      //         .link
+                                      //         .toString(),
+                                      //     errorWidget: (context, url, error) =>
+                                      //         Icon(Icons.error),
+                                      //     fit: BoxFit.contain,
+                                      //     width: Get.size.width * 0.2,
+                                      //   ),
+                                      //   title: Text(
+                                      //     categoriesController2
+                                      //         .categoryWisePostMap[
+                                      //             categoriesController2
+                                      //                 .currentCategoryTab
+                                      //                 .toString()][i]
+                                      //         .title
+                                      //         .rendered
+                                      //         .toString(),
+                                      //     maxLines: 3,
+                                      //   ),
+                                      // );
                                     });
                               },
                             );

@@ -35,7 +35,11 @@ class PostController extends GetxController {
       if(posts.length > 0){
       postList.clear();
       postList.addAll(posts);
-           }
+      print("Post1 List Length is ${posts.length}");
+      update();
+      print("Post List1 Length is ${postList.length}");
+
+      }
     }
     catch (e){
       print(e.toString());

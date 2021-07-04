@@ -2,6 +2,9 @@
 
 A News Portal App For AajKiKhabar
 
+##
+Firebase Account is connected with contact.cartooncrazy@gmail.com email
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -25,8 +28,4 @@ Date : 22 April 2021
 ##
 
 
-##
-HIve
-
-1. create hive_model_class in model
 ##

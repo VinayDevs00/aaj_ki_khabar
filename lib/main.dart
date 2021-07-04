@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:aaj_ki_khabar/View/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
@@ -14,6 +16,8 @@ import 'Model/postcontroller_hive_model.dart';
 import 'View/Screens/home_screen.dart';
 
 void main() async{
+
+
   // final appDocumentDirectory = await pathProvider.getApplicationDocumentsDirectory();
   // Hive.init(appDocumentDirectory.path);
   // Hive.registerAdapter(PostControllerHiveModelAdapter());
@@ -22,11 +26,17 @@ void main() async{
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.blue,
   ));
-  runApp(App());
+
+
+  //Flutter BAckground Service Testing
+
+
+
+    runApp(App());
 }
 
 class App extends StatelessWidget {
-  // Create the initialization Future outside of `build`:
+
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
@@ -46,7 +56,9 @@ class App extends StatelessWidget {
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return GetMaterialApp(home: Scaffold(body: HomeScreen()));
+          return GetMaterialApp(
+
+              home: Scaffold(body: HomeScreen()));
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
