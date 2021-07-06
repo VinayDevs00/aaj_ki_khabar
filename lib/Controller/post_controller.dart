@@ -12,8 +12,6 @@ import 'package:path_provider/path_provider.dart';
 class PostController extends GetxController {
 
   var postList = <PostsModel>[].obs;
-  var postListHive = <PostControllerHiveModel>[].obs;
-
   var _currentSliderIndex = 0.obs;
 
 
@@ -35,9 +33,7 @@ class PostController extends GetxController {
       if(posts.length > 0){
       postList.clear();
       postList.addAll(posts);
-      print("Post1 List Length is ${posts.length}");
       update();
-      print("Post List1 Length is ${postList.length}");
 
       }
     }

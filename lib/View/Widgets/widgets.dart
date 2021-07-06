@@ -142,4 +142,37 @@ fit: BoxFit.cover,
      );
    }
 
+   //ToDo : SliderCard
+
+ Widget sliderCard(sSize,imgList,index){
+  return Column(
+    children: [
+      Container(
+        height: sSize.height*0.2,
+        width: sSize.width*0.8,
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(25),topRight:Radius.circular(25)),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(25),topRight: Radius.circular(25) ),
+          child: Image.network(imgList[index],fit: BoxFit.cover,),
+        ),
+      ),
+      Container(
+        height: sSize.height*0.08,
+        width: sSize.width*0.8,
+        decoration: BoxDecoration(
+          color : Color(0xFFE0E0EB),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),bottomRight:Radius.circular(25)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Hello How Are You?"),
+        ),
+      )
+    ],
+  );
+ }
+
 }

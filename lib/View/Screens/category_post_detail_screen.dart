@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 class CategoryPostDetailScreen extends StatelessWidget {
   final postNumber;
 
-  CategoryPostDetailScreen({Key key, this.postNumber}) : super(key: key);
+  CategoryPostDetailScreen({this.postNumber}) ;
 
 final CategoriesController categoriesController = Get.find(tag: "categoryPOstTag");
   @override

@@ -21,10 +21,10 @@ class CategoriesController extends GetxController {
   Future<void> fetchCategories() async {
     try {
       var categories = await ApiService.fetchCategories();
-      print("CategoryList Length is 2+ ${categories.length.toString()}");
       if (categories.length > 0) {
         categoriesList.clear();
         categoriesList.value = categories;
+        print(categories[1].toString());
         dataLength.value = categoriesList.length;
         update();
       }

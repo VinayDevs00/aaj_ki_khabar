@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class PostDetailScreen extends StatelessWidget {
-  final postNumber;
+  int postNumber;
 
   PostDetailScreen({Key key, this.postNumber}) : super(key: key);
 
@@ -18,23 +18,34 @@ class PostDetailScreen extends StatelessWidget {
     final sSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
           Stack(
             children: [
-              Container(
-              height: sSize.height * 0.4,
-              width: sSize.width,
-              child: CachedNetworkImage(
-               imageUrl :postController
-                    .postList[postNumber].embedded.wpFeaturedmedia[0].link
-                    .toString(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                fit: BoxFit.cover,
-                width: sSize.width * 0.2,
-              ),
+              ClipRRect(
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+
+                child: Container(
+                height: sSize.height * 0.5,
+                width: sSize.width,
+                child: CachedNetworkImage(
+                 imageUrl :postController
+                      .postList[postNumber].embedded.wpFeaturedmedia[0].link
+                      .toString(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  fit: BoxFit.cover,
+                  width: sSize.width * 0.2,
+                ),
             ),
+              ),
+              Container(
+                height: sSize.height * 0.5,
+                width: sSize.width,
+                decoration: BoxDecoration(
+                ),
+              ),
               AppBar(backgroundColor: Colors.transparent,elevation: 0,),
       ]
           ),
