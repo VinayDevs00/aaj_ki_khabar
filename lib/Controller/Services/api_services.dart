@@ -28,7 +28,6 @@ static Future<List<CategoriesModel>> fetchCategories() async{
 
 static Future<List<PostsModel>> fetchPosts() async{
 
-  // var url = Uri.https("www.aajkikhabar.com", "/wp-json/wp/v2/posts", {'q': '{http}'});
 
   var response = await client.get(Uri.parse("https://www.aajkikhabar.com/wp-json/wp/v2/posts?_embed"));
 
